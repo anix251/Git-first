@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch Products</title>
+    <style>
+        table {
+            background-color: aqua;
+            color: red;
+            border: 2px solid black;
+            margin: auto;
+            padding: 20px;
+            border-collapse: collapse; 
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>Sr.no</th>
+                <th>Title</th>
+                <th>Category</th>
+                <th>Price</th>
+                <th>Rating</th>
+                <th>Images</th>
+            </tr>
+        </thead>
+        
+        <tbody id="data">
+            
+        </tbody>
+    </table>
+
+    <script>
+        const url = "https://dummyjson.com/products";
+        
+        async function loadProducts() {
+            try {
+                const res = await fetch(url);
+                const data = await res.json();
+                
+               
+                const tableBody = document.getElementById("data");
+                
+                
+                let tableContent = "";
+                
+                data.products.forEach((product, index) => {
+                    tableContent += `
+                        <tr>
+                            <td>${index + 1}</td>
+                            <td>${product.title}</td>
+                            <td>${product.category}</td>
+                            <td>$${product.price}</td>
+                            <td>${product.rating}</td>
+                            <td style="width:10px; height:10px;"><img src="${product.Images}"></td>
+                        </tr>
+                    `;
+                });
+                
+                
+                tableBody.innerHTML = tableContent;
+                
+            } catch (err) {
+                console.error("Error fetching data:", err);
+            }
+        }
+        
+        loadProducts();
+    </script>
+</body>
+</html>
+
