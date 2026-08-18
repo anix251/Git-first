@@ -27,10 +27,12 @@
             <tr>
                 <th>Sr.no</th>
                 <th>Title</th>
+                <th>Images</th>
                 <th>Category</th>
                 <th>Price</th>
                 <th>Rating</th>
-                <th>Images</th>
+                <th></th>
+                
             </tr>
         </thead>
         
@@ -40,12 +42,17 @@
     </table>
 
     <script>
-        const url = "https://dummyjson.com/products";
+        const url = "https://dummyjson.com/products?limit=10";  //use limit to take limited
+
+        const urlC="https://open.er-api.com/v6/latest/USD";
         
         async function loadProducts() {
             try {
+                const ratePromise=USDtoINR();
                 const res = await fetch(url);
                 const data = await res.json();
+
+                const exchangeRate= await ratePromise;
                 
                
                 const tableBody = document.getElementById("data");
@@ -58,10 +65,12 @@
                         <tr>
                             <td>${index + 1}</td>
                             <td>${product.title}</td>
+                            <td><img src="${product.images[0]}" width="50px"></td>
                             <td>${product.category}</td>
-                            <td>$${product.price}</td>
+                            <td>₹${(exchangeRate*product.price).toFixed(2) }</td>
                             <td>${product.rating}</td>
-                            <td style="width:10px; height:10px;"><img src="${product.Images}"></td>
+                            <td><button>Add to Cart</button></td>
+                            
                         </tr>
                     `;
                 });
@@ -72,6 +81,21 @@
             } catch (err) {
                 console.error("Error fetching data:", err);
             }
+        }
+        ////////////////////
+        async function USDtoINR()
+        {
+            try{
+                const res=await fetch(urlC);
+                const data= await res.json();
+
+                const usd=data.rates.INR;
+
+                return usd;
+            }catch(e){
+                console.log("Error:",e);
+            }
+            
         }
         
         loadProducts();
