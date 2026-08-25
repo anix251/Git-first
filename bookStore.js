@@ -10,6 +10,14 @@ const bookData = [
     {image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmccMjBTcG_KJfEIMaUGV_kJqMtIVRFi2XCMUnRWv4oQ&s=10",price:388},
     {image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6sNCwWqFuNw1Y6J8dwVsgoeqZpCjYn0-35sYm6YCtWA&s=10",price:1020},
      {image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWbNoLr7fZfpkZzQxJxZPVbJ5vvTE5MWmGQL7apgjMnA&s=10",price:465},
+         {image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmccMjBTcG_KJfEIMaUGV_kJqMtIVRFi2XCMUnRWv4oQ&s=10",price:388},
+    {image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6sNCwWqFuNw1Y6J8dwVsgoeqZpCjYn0-35sYm6YCtWA&s=10",price:1020},
+     {image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWbNoLr7fZfpkZzQxJxZPVbJ5vvTE5MWmGQL7apgjMnA&s=10",price:465},
+    {image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTXPbTQpwFpUdauVXlz2D1kAtpc_l3pfHimsUBgbDIGQ&s=10",price:200},
+    {image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-Rd5bCcGPVCYkbpbNs6SYtP69vhtvKtHIwWrFziBU_g&s=10",price:520},
+    {image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmccMjBTcG_KJfEIMaUGV_kJqMtIVRFi2XCMUnRWv4oQ&s=10",price:388},
+    {image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6sNCwWqFuNw1Y6J8dwVsgoeqZpCjYn0-35sYm6YCtWA&s=10",price:1020},
+     {image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWbNoLr7fZfpkZzQxJxZPVbJ5vvTE5MWmGQL7apgjMnA&s=10",price:465}
     
     
 ];
@@ -38,6 +46,7 @@ function Book(props) {
     div.appendChild(button);
 
     return div;
+    
 }
 
 const bookstore = bookData.map((book) => Book(book));
