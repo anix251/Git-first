@@ -1,0 +1,19 @@
+{
+  "name": "book-npm-app",
+  "version": "1.0.0",
+  "description": "my first book app using npm",
+  "keywords": [
+    "reactJS"
+  ],
+  "license": "ISC",
+  "author": "Aniket",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8"
+  }
+}
